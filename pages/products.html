@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Sourdough Breads & Fresh Pastries | Artisan Delight</title>
+    <meta name="description" content="Browse our organic, small-batch menu at Artisan Delight. From slow-fermented crusty sourdough loaves to decadent lavender lemon bars and vegan ganache brownies.">
+    <meta name="keywords" content="organic bakery menu, rustic pastries, buy sourdough online, local sweet treats, vegan brownies, stoneground flour bread">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+      <header class="site-header">
+        <div class="header-top">
+         <img src="../assets/images/logo.png" alt="Local logo photo" width="100" height="100">
+        <h1>Artisan Delight</h1>
+        </div>
+    
+         <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="catering.html">Catering</a></li>
+                <li><a href="inquiry.html">Enquiry</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="products" class="product-card">
+            <h2>Products</h2>
+            <p>
+                100% organic ingredients from local farms, which matches our goal of being eco-friendly and supporting the local community. 
+                <br>
+            </p>
+        </section>
+
+        <section id="articles" class="categories-container-stack">
+
+             <article class="category-block-card">
+                <h3>Sourdough & Country Breads</h3>
+                <div class="product-flex-list">
+                    
+                    <div class="product-item-row">
+                        <div class="product-item">
+                            <strong>The Midnight Crust Sourdough</strong>
+                            <p>Crisp, deeply caramelized shell with an airy, tangy interior.</p>
+                        </div>
+                        <div class="product-item-img-placeholder">
+                            <img src="../assets/images/sourdough.jpg" alt="A freshly cut loaf of organic artisan sourdough bread with rustic crust bubbles" style="width:100%; height:100%; object-fit:cover; border-radius:5px;">
+                        </div>
+                    </div>
+
+                    <div class="product-item-row">
+                        <div class="product-item">
+                            <strong>Wild Honey & Walnut Boule</strong>
+                            <p>Infused with raw, local wildflower honey and toasted organic walnuts.</p>
+                        </div>
+                        <div class="product-item-img-placeholder">
+                            <img src="../assets/images/boule.jpg" alt=" dense round country boule artisan bread loaf embedded with crushed walnuts" style="width:100%; height:100%; object-fit:cover; border-radius:5px;">
+
+                        </div>
+                    </div>
+
+                    <div class="product-item-row">
+                        <div class="product-item">
+                            <strong>Rosemary Sea Salt Focaccia</strong>
+                            <p>Drizzled with cold-pressed olive oil, topped with fresh garden rosemary and hand-harvested flake salt.</p>
+                        </div>
+                        <div class="product-item-img-placeholder">
+                            <img src="../assets/images/foccacia.jpg" alt="Thick golden pan baked Italian focaccia bread garnished with fresh rosemary leaves" style="width:100%; height:100%; object-fit:cover; border-radius:5px;">
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="category-block-card">
+                <h3>Rustic Pastries & Confections</h3>
+                <div class="product-flex-list">
+                    
+                    <div class="product-item-row">
+                        <div class="product-item">
+                            <strong>Bourbon Vanilla Bean Tart</strong>
+                            <p>A flaky, melt-in-your-mouth shortcrust pastry base. Filled with rich, organic pastry cream and topped with glazed seasonal berries.</p>
+                        </div>
+                        <div class="product-item-img-placeholder">
+                            <img src="../assets/images/vanillatart.jpg" alt="An elegant individual shortbread pastry tart filled with vanilla cream bean specks" style="width:100%; height:100%; object-fit:cover; border-radius:5px;">
+                        </div>
+                    </div>
+
+                    <div class="product-item-row">
+                        <div class="product-item">
+                            <strong>Salted Ganache Vegan Brownies</strong>
+                            <p>Silky, dense dark chocolate blocks made with locally sourced cocoa. Finished with a sprinkle of pink Himalayan salt.</p>
+                        </div>
+                        <div class="product-item-img-placeholder">
+                            <img src="../assets/images/brownie.jpg" alt="Fudgy sliced dark chocolate vegan brownies scattered with sea salt crystals" style="width:100%; height:100%; object-fit:cover; border-radius:5px;">
+                        </div>
+                    </div>
+
+                    <div class="product-item-row">
+                        <div class="product-item">
+                            <strong>Lavender Infused Lemon Bars</strong>
+                            <p>A zesty lemon curd layer sitting on a buttery shortbread crust. Subtly perfumed with organic, culinary-grade local lavender.</p>
+                        </div>
+                        <div class="product-item-img-placeholder">
+                            <img src="../assets/images/lemonbar.jpg" alt="Bright yellow baked lemon bars with a light dusting of powdered sugar glaze" style="width:100%; height:100%; object-fit:cover; border-radius:5px;">
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <div id="lightboxModal" class="lightbox-overlay" aria-hidden="true" role="dialog">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+        <img class="lightbox-img" id="lightboxImage" src="" alt="">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImage');
+        const closeBtn = document.getElementById('lightboxClose');
+        const galleryImages = document.querySelectorAll('.product-item-img-placeholder img');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                lightbox.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        const hideLightbox = () => {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+        };
+
+        lightbox.addEventListener('click', hideLightbox);
+        closeBtn.addEventListener('click', hideLightbox);
+        
+        // Key listener for close navigation triggers
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                hideLightbox();
+            }
+        });
+
+    </script>
+</body>
+</html>

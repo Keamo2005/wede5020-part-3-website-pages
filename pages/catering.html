@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Bakery Catering Packages | Artisan Delight</title>
+    <meta name="description" content="Elevate your next event with Artisan Delight's premium artisan catering menu. Handcrafted sourdough platters, rustic pastries, and custom confections delivered across Randburg.">
+    <meta name="keywords" content="bakery catering, artisanal platters, event catering Randburg, fresh pastries platter, sourdough catering, corporate event food">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+      <header class="site-header">
+        <div class="header-top">
+         <img src="../assets/images/logo.png" alt="Local logo photo" width="100" height="100">
+        <h1>Artisan Delight</h1>
+        </div>
+    
+         <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="catering.html" class="active">Catering</a></li>
+                <li><a href="inquiry.html">Enquiry</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="products" class="catering-hero-card">
+            <h2>Our Catering Menu</h2>
+            <p>
+                Every treat in our collection is meticulously handcrafted in small batches, blending time-honoured traditions with a modern twist. We source only the finest, ethically produced ingredients, from sun-ripened local fruits to rich, single-origin cocoas. No shortcuts, no artificial additives—just pure, honest flavours made with love and dedication.
+                <br>
+            </p>
+
+        <div style="margin-top: 1.5rem; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto;">
+                <label for="menuSearch" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #2c2520; font-size: 0.95rem;">Search Catering Platters:</label>
+                <input type="text" id="menuSearch" placeholder="Type to filter e.g., 'Sourdough', 'Lemon'..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+        </div>
+        </section>
+
+        <section id="articles" class="catering-menu-container">
+            <article class="catering-card">
+                <h3>Sourdough & Country Breads</h3>
+                <div class="catering-list">
+                    
+                    <div class="catering-item-row">
+                        <span class="item-name">The Midnight Crust Sourdough</span>
+                        <div class="price-tags-group">
+                            <span class="price-tag">R95 <small>(Whole Loaf)</small></span>
+                        </div>
+                    </div>
+
+                    <div class="catering-item-row">
+                        <span class="item-name">Wild Honey & Walnut Boule</span>
+                        <div class="price-tags-group">
+                            <span class="price-tag">R110 <small>(Whole Loaf)</small></span>
+                        </div>
+                    </div>
+
+                    <div class="catering-item-row">
+                        <span class="item-name">Rosemary Sea Salt Focaccia Board</span>
+                        <div class="price-tags-group">
+                            <span class="price-tag">R185 <small>(Serves 6-8)</small></span>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="catering-card">
+                <h3>Rustic Pastries & Confections</h3>
+                <div class="catering-list">
+                    
+                    <div class="catering-item-row">
+                        <span class="item-name">Bourbon Vanilla Bean Tartlets</span>
+                        <div class="price-tags-group">
+                            <span class="price-tag">R240 <small>(Platter of 6)</small></span>
+                            <span class="price-tag">R450 <small>(Platter of 12)</small></span>
+                        </div>
+                    </div>
+
+                    <div class="catering-item-row">
+                        <span class="item-name">Salted Ganache Vegan Brownies Bites</span>
+                        <div class="price-tags-group">
+                            <span class="price-tag">R190 <small>(Platter of 12)</small></span>
+                            <span class="price-tag">R360 <small>(Platter of 24)</small></span>
+                        </div>
+                    </div>
+
+                    <div class="catering-item-row">
+                        <span class="item-name">Lavender Infused Lemon Bars</span>
+                        <div class="price-tags-group">
+                            <span class="price-tag">R210 <small>(Platter of 12)</small></span>
+                            <span class="price-tag">R390 <small>(Platter of 24)</small></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        </main>
+
+        <script>
+        document.getElementById('menuSearch').addEventListener('input', function(e) {
+            const filterValue = e.target.value.toLowerCase();
+            const productRows = document.querySelectorAll('.catering-item-row');
+            
+            productRows.forEach(row => {
+                const itemName = row.querySelector('.item-name').textContent.toLowerCase();
+                if (itemName.includes(filterValue)) {
+                    row.style.display = 'flex';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Auto hide card containers if all inner items are filtered out
+            document.querySelectorAll('.catering-card').forEach(card => {
+                const visibleRows = card.querySelectorAll('.catering-item-row[style="display: flex;"]');
+                const totalRows = card.querySelectorAll('.catering-item-row');
+                
+                // If filtering is active and none match, hide the section header card
+                if (totalRows.length > 0 && card.querySelectorAll('.catering-item-row[style="display: none;"]').length === totalRows.length) {
+                    card.style.display = 'none';
+                } else {
+                    card.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

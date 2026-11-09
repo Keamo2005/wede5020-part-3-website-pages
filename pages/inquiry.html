@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering Enquiries & Customer Feedback | Artisan Delight</title>
+    <meta name="description" content="Get in touch with the team at Artisan Delight. Submit custom catering enquiries, feedback reviews, or order booking questions directly to our Randburg micro-bakery.">
+    <meta name="keywords" content="bakery contact, catering enquiry form, customer feedback, order artisan bread, contact bakers Randburg">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+      <header class="site-header">
+        <div class="header-top">
+         <img src="../assets/images/logo.png" alt="Local logo photo" width="100" height="100">
+         <h1>Artisan Delight</h1>
+        </div>
+    
+         <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="catering.html">Catering</a></li>
+                <li><a href="inquiry.html" class="active">Enquiry</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <main class="main-content">
+        <section class="form-container-card">
+            <h2 class="form-main-title">Inquiry & Feedback Form</h2>
+
+            <div id="successBanner" class="success-banner" role="alert"></div>
+            
+            <form id="enquiryForm" method="POST" class="enquiry-form" novalidate>
+                <fieldset class="form-fieldset">
+                    <legend class="form-legend">User Feedback</legend>
+
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                         <span id="nameError" class="error-msg">Please enter a valid full name (minimum 3 characters).</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span id="emailError" class="error-msg">Please enter a valid email address.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="e.g. 0123456789" required>
+                        <span id="phoneError" class="error-msg">Please enter a valid 10-digit phone number.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="satis">Satisfaction (1-10):</label>
+                        <input type="range" id="satis" name="satis" min="1" max="10" value="5" class="slider-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" rows="5" cols="40" placeholder="Type your feedback here..."></textarea>
+                    </div>
+                </fieldset>
+                
+                <div class="form-actions-row">
+                    <button type="submit" class="btn-submit">Submit Feedback</button>
+                    <button type="reset" id="btnReset" class="btn-reset">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="map-container-card">
+            <h3 style="color: #2c2520; font-size: 1.3rem; margin-top: 0; margin-bottom: 1rem; font-weight: 600;">Find Our Micro-Bakery</h3>
+            <p style="color: #615554; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5;">
+                Come visit us for fresh bakes hot out of the brick ovens! We are located in the heart of Randburg, Johannesburg.
+            </p>
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.277248430124!2d27.9809582!3d-26.057194099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95743706cfd9e1%3A0xf985a8ee21c69088!2s12%20Desmond%20Ave%2C%20Olivedale%2C%20Randburg%2C%202188!5e0!3m2!1sen!2sza!4v1794239953135!5m2!1sen!2sza"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Our bakery Location Map">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('enquiryForm');
+        const satisSlider = document.getElementById('satis');
+        const satisValDisplay = document.getElementById('satisVal');
+        const successBanner = document.getElementById('successBanner');
+        const resetBtn = document.getElementById('btnReset');
+
+        // Dynamic slider tracking loop
+        satisSlider.addEventListener('input', (e) => {
+            satisValDisplay.textContent = e.target.value;
+        });
+
+        // Form monitoring execution loop
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop standard form reload action
+            
+            // Extract element inputs
+            const nameInput = document.getElementById('fullname');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            
+            // Extract text node errors
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const phoneError = document.getElementById('phoneError');
+            
+            let isFormValid = true;
+
+            // 1. Full Name Processing Checks
+            if (nameInput.value.trim().length < 3) {
+                nameInput.classList.add('invalid-input');
+                nameError.style.display = 'block';
+                isFormValid = false;
+            } else {
+                nameInput.classList.remove('invalid-input');
+                nameError.style.display = 'none';
+            }
+
+            // 2. Email Regular Expression Validation Checks
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                emailInput.classList.add('invalid-input');
+                emailError.style.display = 'block';
+                isFormValid = false;
+            } else {
+                emailInput.classList.remove('invalid-input');
+                emailError.style.display = 'none';
+            }
+
+            // 3. Phone Array Digit Checks
+            const phoneValue = phoneInput.value.trim();
+            const phoneRegex = /^\d{10}$/; // Verifies exactly 10 digits
+            if (!phoneRegex.test(phoneValue)) {
+                phoneInput.classList.add('invalid-input');
+                phoneError.style.display = 'block';
+                isFormValid = false;
+            } else {
+                phoneInput.classList.remove('invalid-input');
+                phoneError.style.display = 'none';
+            }
+
+            // Validation completion validation checks
+            if (isFormValid) {
+                // Construct submission data state message
+                successBanner.textContent = `Thank you, ${nameInput.value.trim()}! Your enquiry has been securely transmitted. Our artisan baking team will contact you shortly.`;
+                successBanner.style.display = 'block';
+                
+                // Flush form arrays cleanly
+                form.reset();
+                satisValDisplay.textContent = "5";
+                
+                // Scroll layout smoothly to top view
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // Reset tracking interface override
+        resetBtn.addEventListener('click', () => {
+            const inputs = form.querySelectorAll('input, textarea');
+            const errors = form.querySelectorAll('.error-msg');
+            
+            inputs.forEach(input => input.classList.remove('invalid-input'));
+            errors.forEach(err => err.style.display = 'none');
+            satisValDisplay.textContent = "5";
+            successBanner.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
